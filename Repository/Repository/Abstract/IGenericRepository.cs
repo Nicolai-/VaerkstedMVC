@@ -7,10 +7,15 @@ namespace Repository.Abstract
     public interface IGenericRepository<TEntity>
     {
         TEntity GetById(int? id);
+
         IQueryable<TEntity> GetAll();
+
         void Edit(TEntity entity);
+
         void Insert(TEntity entity);
+
         void Delete(TEntity entity);
+
         void Dispose();
     }
 }

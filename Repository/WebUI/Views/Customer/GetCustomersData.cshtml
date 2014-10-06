@@ -1,0 +1,11 @@
+﻿@using Repository.Entities
+@model IEnumerable<Customer>
+
+@foreach (Customer c in Model)
+{
+    <tr>
+        <td>@c.Name</td>
+        <td>@c.Company</td>
+        <td>@c.Phone</td>
+    </tr>
+}
