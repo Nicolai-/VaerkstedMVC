@@ -4,9 +4,9 @@ using System.Web.Mvc;
 using Ninject;
 using Moq;
 using Repository.Abstract;
-using Repository.Entities;
-using Repository.Concrete;
+using Repository.Concrete.Entities;
 using System.Linq;
+using Repository.Concrete;
 
 namespace WebUI.Infrastructure
 {
@@ -44,7 +44,11 @@ namespace WebUI.Infrastructure
 
             //kernel.Bind<IGenericRepository<Customer>>().ToConstant(mock.Object);
 
+            //Create CustomerController
             kernel.Bind<IGenericRepository<Customer>>().To<GenericRepository<Customer>>().WithConstructorArgument("dbContext", new VaerkstedContext());
+
+            //Create CarController
+            kernel.Bind<ICarRepository>().To<CarRepository>().WithConstructorArgument("dbContext", new VaerkstedContext());
 
 
         }

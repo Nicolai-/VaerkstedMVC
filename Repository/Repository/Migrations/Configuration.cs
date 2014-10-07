@@ -1,7 +1,6 @@
 namespace Repository.Migrations
 {
     using Repository.Concrete.Entities;
-    using Repository.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;

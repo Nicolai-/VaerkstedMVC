@@ -74,7 +74,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICarRepository.cs" />
     <Compile Include="Abstract\IGenericRepository.cs" />
+    <Compile Include="Concrete\CarRepository.cs" />
     <Compile Include="Concrete\Entities\Car.cs" />
     <Compile Include="Concrete\GenericRepository.cs" />
     <Compile Include="Concrete\VaerkstedContext.cs" />

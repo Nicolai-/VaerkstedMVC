@@ -1,10 +1,10 @@
-﻿@using Repository.Entities
+﻿@using Repository.Concrete.Entities
 @model IEnumerable<Customer>
 
 @foreach (Customer c in Model)
 {
     <tr>
-        <td>@c.Name</td>
+        <td>@Html.ActionLink(c.Name, "CustomerOverview", new { id=c.Id } )</td>
         <td>@c.Company</td>
         <td>@c.Phone</td>
     </tr>

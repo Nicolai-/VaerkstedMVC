@@ -137,6 +137,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -150,6 +151,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Customer\CustomerAdded.cshtml" />
+    <Content Include="Views\Car\ViewCars.cshtml" />
+    <Content Include="Views\Customer\CustomerOverview.cshtml" />
+    <Content Include="Views\Car\AddCar.cshtml" />
+    <Content Include="Views\Car\CarAdded.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

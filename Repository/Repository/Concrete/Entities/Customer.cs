@@ -1,5 +1,4 @@
-﻿using Repository.Concrete.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace Repository.Entities
+namespace Repository.Concrete.Entities
 {
     public class Customer
     {

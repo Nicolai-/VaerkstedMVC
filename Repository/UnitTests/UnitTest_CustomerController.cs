@@ -2,11 +2,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Repository.Abstract;
 using Moq;
-using Repository.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using WebUI.Controllers;
 using System.Web.Mvc;
+using Repository.Concrete.Entities;
 
 namespace UnitTests
 {

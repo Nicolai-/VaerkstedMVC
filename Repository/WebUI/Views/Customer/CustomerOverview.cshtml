@@ -1,0 +1,29 @@
+﻿@using Repository.Concrete.Entities
+@model Repository.Concrete.Entities.Customer
+
+@{
+    ViewBag.Title = "Kunde Detaljer";
+}
+
+<h2>Kunde Detaljer</h2>
+
+<div>
+    @Html.LabelFor(c => c.Name)
+    @Html.DisplayFor(c => c.Name)
+</div>
+<div>
+    @Html.LabelFor(c => c.Company)
+    @Html.DisplayFor(c => c.Company)
+</div>
+<div>
+    @Html.LabelFor(c => c.Phone)
+    @Html.DisplayFor(c => c.Phone)
+</div>
+
+
+<div>
+    @Html.ActionLink("Tilføj ny bil", "AddCar", "Car", new { Model.Id }, new { @class = "btn btn-default" })
+</div>
+<div>
+    @Html.Action("ViewCars", "Car", new { id = Model.Id })
+</div>

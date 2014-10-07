@@ -1,4 +1,4 @@
-﻿@model Repository.Entities.Customer
+﻿@model Repository.Concrete.Entities.Customer
 
 @{
     ViewBag.Title = "Index";
@@ -17,14 +17,15 @@
     <div class="input-group">
         @Html.TextBox("searchString")
         <button type="submit" class="btn btn-sm">Søg</button>
-    </div>    
+    </div>
 }
 
-@Html.ActionLink("Tilføj Kunde", "AddCustomer")
+@Html.ActionLink("Tilføj Kunde", "AddCustomer", null, new { @class = "btn btn-default" })
 
 <div id="loading" class="load" style="display:none">
     <p>Searching...</p>
 </div>
+
 
 <div>
     <table class="table table-striped table-bordered">

@@ -1,5 +1,5 @@
 ﻿using Repository.Abstract;
-using Repository.Entities;
+using Repository.Concrete.Entities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,7 +30,9 @@ namespace WebUI.Controllers
             IEnumerable<Customer> data = customers.GetAll();
             if (searchString != "")
             {   
-                data = customers.GetAll().Where(c => c.Name.ToLower().Contains(searchString.ToLower()));
+                data = customers.GetAll().Where(
+                    c => c.Name.ToLower().Contains(searchString.ToLower()) || c.Company.ToLower().Contains(searchString.ToLower())
+                    );
             }
             if (!data.Any())
             {
@@ -57,13 +59,13 @@ namespace WebUI.Controllers
             return PartialView(GetData(searchString));
         }
 
-        public ViewResult AddCustomer()
+        public ActionResult AddCustomer()
         {
             return View();
         }
 
         [HttpPost]
-        public ViewResult AddCustomer([Bind(Exclude = "Id")]Customer customer)
+        public ActionResult AddCustomer([Bind(Exclude = "Id")]Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -71,6 +73,13 @@ namespace WebUI.Controllers
                 return View("CustomerAdded");
             }
             return View();
+        }
+
+
+        public ActionResult CustomerOverview (int id = 1)
+        {
+            Customer customer = customers.GetById(id);
+            return View(customer);
         }
     }
 }
