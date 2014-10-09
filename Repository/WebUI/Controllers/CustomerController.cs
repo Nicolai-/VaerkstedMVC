@@ -65,12 +65,12 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddCustomer([Bind(Exclude = "Id")]Customer customer)
+        public ActionResult AddCustomer(Customer customer)
         {
             if (ModelState.IsValid)
             {
                 customers.Insert(customer);
-                return View("CustomerAdded");
+                return View("GetCustomers");
             }
             return View();
         }
@@ -81,21 +81,5 @@ namespace WebUI.Controllers
             return View(customer);
         }
 
-        public JsonResult DoesUserExist(string Date)
-        {
-            DateTime parsedDate;
-            if (!DateTime.TryParse(Date, out parsedDate))
-            {
-                return Json("Please enter a valid date (yyyy-mm-dd)", JsonRequestBehavior.AllowGet);
-            }
-            else if (DateTime.Now > parsedDate)
-            {
-                return Json("Please enter a date in the future", JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return Json(true, JsonRequestBehavior.AllowGet);
-            }
-        }
     }
 }

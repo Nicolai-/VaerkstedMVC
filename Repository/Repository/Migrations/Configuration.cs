@@ -29,7 +29,7 @@ namespace Repository.Migrations
 
             context.Customers.AddOrUpdate(
               c => c.Name,
-                new Customer { Id = 1, Name = "Jørgen Hansen", Company = "Jørgen Hansen Biler", Phone = 75467589 },
+                new Customer { Id = 1, Name = "Jørgen Hansen", Company = "Tømrer firmaet hansen", Phone = 75467589 },
                 new Customer { Id = 2, Name = "Klaus Jensen", Phone = 55446677 },
                 new Customer { Id = 3, Name = "Jakob Jensen", Phone = 33333333 }
             );

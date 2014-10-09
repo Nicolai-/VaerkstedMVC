@@ -40,7 +40,7 @@ namespace WebUI.Controllers
             {
                 cars.Insert(car);
                 car = cars.GetById(car.Id);
-                return RedirectToAction("CustomerOverview", "Customer", car.Customer);
+                return RedirectToAction("CustomerOverview", "Customer", new { id = car.CustomerId });
             }
             ViewBag.CustomerId = car.CustomerId;
             return View();

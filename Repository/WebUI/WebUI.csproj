@@ -180,6 +180,8 @@
     <Content Include="Views\Car\CarAdded.cshtml" />
     <Content Include="Views\Task\_GetTasks.cshtml" />
     <Content Include="Views\Car\EditCar.cshtml" />
+    <Content Include="Views\Task\AddTask.cshtml" />
+    <Content Include="Views\Task\TaskAdded.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

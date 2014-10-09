@@ -27,7 +27,8 @@
                     <td>@c.Model</td>
                     <td>@c.Year</td>
                     <td>@c.ChassisNumber</td>
-                    <td>@Html.ActionLink("Edit", "EditCar", new { id = c.Id })</td>
+                    <td>@Html.ActionLink("Ret Oplsyninger", "EditCar", new { id = c.Id }, new { @class = "btn btn-default" })</td>
+                    <td>@Html.ActionLink("Tilføj Opgave", "AddTask", "Task", new { id = c.Id }, new { @class = "btn btn-default" })</td>
                 </tr>
             }
         </tbody>

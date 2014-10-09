@@ -20,6 +20,7 @@ namespace Repository.Concrete.Entities
         [Display(Name = "Firmanavn")]
         public string Company { get; set; }
 
+        [RegularExpression(@"^\d{8}$", ErrorMessage = "Ugyldigt telefon nummer")]
         [Required(ErrorMessage = "Kundens telefon nummber skal udfyldes")]
         [UIHint("PhoneNumber")]
         [Display(Name = "Telefon")]
