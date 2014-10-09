@@ -14,6 +14,18 @@ namespace WebUI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "CarDefault",
+                url: "Car/{action}/{id}",
+                defaults: new { Controller = "Car", action = "GetCars", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "CustomerDefault",
+                url: "Customer/{action}/{id}",
+                defaults: new { controller = "Customer", action = "GetCustomers", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Customer", action = "GetCustomers", id = UrlParameter.Optional }

@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace Repository.Concrete.Entities
+namespace WebUI.Models
 {
-    public class Car
+    public class CarVM
     {
         public int Id { get; set; }
 
+        public int? CustomerId { get; set; }
         [RegularExpression(@"(?i)^[a-z]{2}\d{5}$", ErrorMessage = "Ugyldig nummer plade")]
         [Display(Name = "Nummer plade")]
+
         public string PlateNumber { get; set; }
 
         [Display(Name = "Stel nr")]
@@ -30,13 +31,5 @@ namespace Repository.Concrete.Entities
         [RegularExpression(@"^\d{4}$", ErrorMessage = "Ugyldigt årstal")]
         [Display(Name = "Årgang")]
         public int Year { get; set; }
-
-        //Relation to Customer
-        public int? CustomerId { get; set; }
-        //Relation to Customer
-        public virtual Customer Customer { get; private set; }
-
-        //Relation to Task
-        public virtual IList<Task> Tasks { get; private set; }
     }
 }

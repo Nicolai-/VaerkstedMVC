@@ -50,6 +50,10 @@ namespace WebUI.Infrastructure
             //Create CarController
             kernel.Bind<ICarRepository>().To<CarRepository>().WithConstructorArgument("dbContext", new VaerkstedContext());
 
+            //Create TaskController             
+            kernel.Bind<ITaskRepository>().To<TaskRepository>().WithConstructorArgument("dbContext", new VaerkstedContext());
+
+
 
         }
     }

@@ -76,9 +76,12 @@
   <ItemGroup>
     <Compile Include="Abstract\ICarRepository.cs" />
     <Compile Include="Abstract\IGenericRepository.cs" />
+    <Compile Include="Abstract\ITaskRepository.cs" />
     <Compile Include="Concrete\CarRepository.cs" />
     <Compile Include="Concrete\Entities\Car.cs" />
+    <Compile Include="Concrete\Entities\Task.cs" />
     <Compile Include="Concrete\GenericRepository.cs" />
+    <Compile Include="Concrete\TaskRepository.cs" />
     <Compile Include="Concrete\VaerkstedContext.cs" />
     <Compile Include="Concrete\Entities\Customer.cs" />
     <Compile Include="Migrations\Configuration.cs" />

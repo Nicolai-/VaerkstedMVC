@@ -56,7 +56,7 @@ namespace WebUI.Controllers
 
         public PartialViewResult GetCustomersData(string searchString = "")
         {
-            return PartialView(GetData(searchString));
+            return PartialView("_GetCustomersData", GetData(searchString));
         }
 
         public ActionResult AddCustomer()
@@ -75,11 +75,27 @@ namespace WebUI.Controllers
             return View();
         }
 
-
         public ActionResult CustomerOverview (int id = 1)
         {
             Customer customer = customers.GetById(id);
             return View(customer);
+        }
+
+        public JsonResult DoesUserExist(string Date)
+        {
+            DateTime parsedDate;
+            if (!DateTime.TryParse(Date, out parsedDate))
+            {
+                return Json("Please enter a valid date (yyyy-mm-dd)", JsonRequestBehavior.AllowGet);
+            }
+            else if (DateTime.Now > parsedDate)
+            {
+                return Json("Please enter a date in the future", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

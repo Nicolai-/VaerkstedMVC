@@ -1,0 +1,58 @@
+﻿@using WebUI.Models
+@model CarVM
+@{
+    ViewBag.Title = "Ret Bil Oplysninger";
+}
+
+<h2>Rediger bil information</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.Hidden("CarId", Model.Id)
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(c => c.PlateNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(c => c.PlateNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(c => c.PlateNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Manufacturer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(c => c.Manufacturer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(c => c.Manufacturer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(c => c.Model, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(c => c.Model, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(c => c.Year, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(c => c.Year, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.ChassisNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(c => c.ChassisNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(c => c.ChassisNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Gem" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+
+}
+

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebUI.Models;
 
 namespace WebUI.Controllers
 {
@@ -18,11 +19,12 @@ namespace WebUI.Controllers
         {
             this.cars = carRepos;
         }
+        [ChildActionOnly]
         // GET: Car
-        public ActionResult ViewCars(int id = 1)
+        public ActionResult GetCars(int id = 1)
         {
             IEnumerable<Car> foundCars = cars.GetAllByCustomerId(id);
-            return PartialView(foundCars);
+            return PartialView("_GetCars", foundCars);
         }
 
         public ActionResult AddCar(int id = 1)
@@ -37,10 +39,41 @@ namespace WebUI.Controllers
             if (ModelState.IsValid)
             {
                 cars.Insert(car);
-                return View("CarAdded", car);
+                car = cars.GetById(car.Id);
+                return RedirectToAction("CustomerOverview", "Customer", car.Customer);
             }
             ViewBag.CustomerId = car.CustomerId;
             return View();
+        }
+
+        public ActionResult EditCar(int id = 1)
+        {
+            Car foundCar = cars.GetById(id);
+            CarVM carVm = new CarVM();
+            carVm.Id = foundCar.Id;
+            carVm.CustomerId = foundCar.CustomerId;
+            carVm.Manufacturer = foundCar.Manufacturer;
+            carVm.Model = foundCar.Model;
+            carVm.PlateNumber = foundCar.PlateNumber;
+            carVm.ChassisNumber = foundCar.ChassisNumber;
+            carVm.Year = foundCar.Year;
+            return View(carVm);
+        }
+
+        [HttpPost]
+        public ActionResult EditCar(CarVM car)
+        {
+            Car carTmp = cars.GetById(car.Id);
+            if (ModelState.IsValid)
+            {
+                carTmp.Manufacturer = car.Manufacturer;
+                carTmp.Model = car.Model;
+                carTmp.PlateNumber = car.PlateNumber;
+                carTmp.ChassisNumber = car.ChassisNumber;
+                carTmp.Year = car.Year;
+                return RedirectToAction("CustomerOverview", "Customer", carTmp.Customer);
+            }
+            return View(car);
         }
     }
 }
