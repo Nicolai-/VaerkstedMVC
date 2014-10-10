@@ -19,7 +19,7 @@ namespace WebUI.Controllers
         {
             this.customers = customerRepos;
         }
-        
+
         public ActionResult GetCustomers()
         {
             return View();
@@ -29,9 +29,12 @@ namespace WebUI.Controllers
         {
             IEnumerable<Customer> data = customers.GetAll();
             if (searchString != "")
-            {   
+            {
+                searchString = searchString.ToLower();
                 data = customers.GetAll().Where(
-                    c => c.Name.ToLower().Contains(searchString.ToLower()) || c.Company.ToLower().Contains(searchString.ToLower())
+                    c => c.Name.ToLower().Contains(searchString)
+                        || c.Company.ToLower().Contains(searchString)
+                        || c.Phone.ToString().Contains(searchString)
                     );
             }
             if (!data.Any())
@@ -53,7 +56,7 @@ namespace WebUI.Controllers
             });
             return Json(data, JsonRequestBehavior.AllowGet);
         }
-
+        [ChildActionOnly]
         public PartialViewResult GetCustomersData(string searchString = "")
         {
             return PartialView("_GetCustomersData", GetData(searchString));
@@ -75,7 +78,7 @@ namespace WebUI.Controllers
             return View();
         }
 
-        public ActionResult CustomerOverview (int id = 1)
+        public ActionResult CustomerOverview(int id = 1)
         {
             Customer customer = customers.GetById(id);
             return View(customer);

@@ -32,7 +32,7 @@ namespace UnitTests
             CustomerController controller = new CustomerController(mock.Object);
 
             // Act
-            var result = controller.GetCustomers() as ViewResult;
+            var result = controller.GetCustomersData() as PartialViewResult;
             var custs = ((IEnumerable<Customer>)result.ViewData.Model).ToArray();
 
             //Assert

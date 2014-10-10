@@ -19,8 +19,9 @@ namespace WebUI.Controllers
         {
             this.cars = carRepos;
         }
-        [ChildActionOnly]
+
         // GET: Car
+        [ChildActionOnly]
         public ActionResult GetCars(int id = 1)
         {
             IEnumerable<Car> foundCars = cars.GetAllByCustomerId(id);
@@ -71,6 +72,7 @@ namespace WebUI.Controllers
                 carTmp.PlateNumber = car.PlateNumber;
                 carTmp.ChassisNumber = car.ChassisNumber;
                 carTmp.Year = car.Year;
+                cars.Edit(carTmp);
                 return RedirectToAction("CustomerOverview", "Customer", carTmp.Customer);
             }
             return View(car);

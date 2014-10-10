@@ -11,9 +11,9 @@ namespace WebUI.Models
         public int Id { get; set; }
 
         public int? CustomerId { get; set; }
+
         [RegularExpression(@"(?i)^[a-z]{2}\d{5}$", ErrorMessage = "Ugyldig nummer plade")]
         [Display(Name = "Nummer plade")]
-
         public string PlateNumber { get; set; }
 
         [Display(Name = "Stel nr")]

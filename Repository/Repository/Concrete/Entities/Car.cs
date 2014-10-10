@@ -33,6 +33,7 @@ namespace Repository.Concrete.Entities
 
         //Relation to Customer
         public int? CustomerId { get; set; }
+
         //Relation to Customer
         public virtual Customer Customer { get; private set; }
 

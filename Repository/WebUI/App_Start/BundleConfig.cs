@@ -10,7 +10,6 @@ namespace WebUI.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-
             bundles.Add(new ScriptBundle("~/bundles/javascript")
             .Include("~/Scripts/jquery-{version}.js",
             "~/Scripts/jquery.validate.js",

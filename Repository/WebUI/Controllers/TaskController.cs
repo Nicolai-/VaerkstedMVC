@@ -1,5 +1,6 @@
 ﻿using Repository.Abstract;
 using Repository.Concrete.Entities;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -33,8 +34,8 @@ namespace WebUI.Controllers
             if (ModelState.IsValid)
             {
                 tasks.Insert(task);
-                Task task1 = tasks.GetById(task.Id);
-                return View("TaskAdded");
+                Customer customer = tasks.GetCustomerByCarId(Convert.ToInt32(task.CarId));
+                return RedirectToAction("CustomerOverview", "Customer", new { id = customer.Id });
             }
             ViewBag.CarId = task.CarId;            
             return View(task);

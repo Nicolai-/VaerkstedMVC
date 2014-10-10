@@ -9,5 +9,7 @@ namespace Repository.Abstract
         IQueryable<Task> GetAllByCarId(int carId);
 
         IQueryable<Task> GetAllByCustomerId(int customerId);
+
+        Customer GetCustomerByCarId(int carId);
     }
 }

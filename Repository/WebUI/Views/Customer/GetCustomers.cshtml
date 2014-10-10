@@ -6,6 +6,10 @@
 
 <h2>Kunde Oversigt</h2>
 
+<div id="loading" class="load" style="display:none">
+    <p>Searching...</p>
+</div>
+
 @using (Ajax.BeginForm("GetCustomersData",
     new AjaxOptions
     {
@@ -22,9 +26,6 @@
 
 @Html.ActionLink("Tilføj Kunde", "AddCustomer", null, new { @class = "btn btn-default" })
 
-<div id="loading" class="load" style="display:none">
-    <p>Searching...</p>
-</div>
 
 
 <div>

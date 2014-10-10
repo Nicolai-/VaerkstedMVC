@@ -24,5 +24,10 @@ namespace Repository.Concrete
         {
             return DbSet.Where(task => task.Car.Customer.Id == customerId);           
         }
+
+        public Customer GetCustomerByCarId(int carId)
+        {
+            return DbSet.FirstOrDefault(task => task.CarId == carId).Car.Customer;
+        }
     }
 }

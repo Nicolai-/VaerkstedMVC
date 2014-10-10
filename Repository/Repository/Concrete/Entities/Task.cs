@@ -11,6 +11,7 @@ namespace Repository.Concrete.Entities
     public class Task
     {
         public int Id { get; set; }
+
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Display(Name = "Oprettet")]
         public DateTime CreatedStamp { get; set; }
@@ -23,7 +24,7 @@ namespace Repository.Concrete.Entities
         public DateTime? DoneStamp { get; set; }
 
         [Required(ErrorMessage = "Opgavens beskrivelse skal udfyldes")]
-        [UIHint("Multiline")]
+        [UIHint("MultilineText")]
         [Display(Name = "Beskrivelse")]
         public string Description { get; set; }
 

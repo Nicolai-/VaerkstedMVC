@@ -21,7 +21,7 @@
 </div>
 
 <div>
-    @Html.ActionLink("Tilføj ny bil", "AddCar", "Car", new { Model.Id }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Tilføj ny bil", "AddCar", "Car", new { id = Model.Id }, new { @class = "btn btn-default" })
 </div>
 <div>
     @Html.Action("GetCars", "Car", new { id = Model.Id })

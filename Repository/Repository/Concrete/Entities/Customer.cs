@@ -10,7 +10,6 @@ namespace Repository.Concrete.Entities
 {
     public class Customer
     {
-        [HiddenInput]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Kundens navn skal udfyldes")]

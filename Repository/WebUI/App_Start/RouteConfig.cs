@@ -13,17 +13,17 @@ namespace WebUI
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "TaskDefault",
-                url: "Task/{action}/{id}",
-                defaults: new { Controller = "Customer", action = "GetCustomers", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    name: "TaskDefault",
+            //    url: "Task/{action}/{id}",
+            //    defaults: new { Controller = "Customer", action = "GetCustomers", id = UrlParameter.Optional }
+            //);
 
-            routes.MapRoute(
-                name: "CarDefault",
-                url: "Car/{action}/{id}",
-                defaults: new { Controller = "Customer", action = "GetCustomers", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    name: "CarDefault",
+            //    url: "Car/{action}/{id}",
+            //    defaults: new { Controller = "Customer", action = "GetCustomers", id = UrlParameter.Optional }
+            //);
 
             routes.MapRoute(
                 name: "CustomerDefault",
